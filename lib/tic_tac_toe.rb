@@ -70,25 +70,47 @@ class TicTacToe
   end 
   
   def won?
-    x_moves = []
-    o_moves = []
+    @x_moves = []
+    @o_moves = []
     @board.each_with_index do |value, i|
       if value == "X"
-        x_moves << i 
+        @x_moves << i 
       elsif value == "O"
-        o_moves << i 
+        @o_moves << i 
       end 
     end 
     WIN_COMBINATIONS.detect do |win_array|
-      (win_array - x_moves).empty? || (win_array - o_moves).empty?
+      (win_array - @x_moves).empty? || (win_array - @o_moves).empty?
     end 
   end 
   
-  def play 
-    until 
+  def full?
+    @board.all? { |i| i == "X" || i == "O" }
   end 
   
-end 
+  def draw?
+    if full? == true &&  !!won? == false 
+      true 
+    else 
+      false 
+    end 
+  end 
+  
+  def over?
+    if !!won? == true || draw? == true 
+      true 
+    end 
+  end 
+  
+  def winner
+    if won? == nil 
+      nil 
+    elsif (won? - @x_moves).empty?
+      "X"
+    elsif (won? - @o_moves). empty?
+      "O"
+    end 
+  end 
 
 
 
