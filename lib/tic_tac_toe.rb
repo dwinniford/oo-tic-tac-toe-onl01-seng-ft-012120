@@ -112,6 +112,8 @@ class TicTacToe
     end 
   end 
 
+  def play 
+    until over?
 
 end 
 
