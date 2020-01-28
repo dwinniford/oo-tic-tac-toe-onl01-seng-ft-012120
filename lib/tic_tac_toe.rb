@@ -82,7 +82,10 @@ class TicTacToe
     WIN_COMBINATIONS.detect do |win_array|
       (win_array - x_moves).empty? || (win_array - o_moves).empty?
     end 
-      
+  end 
+  
+  def play 
+    until 
   end 
   
 end 
